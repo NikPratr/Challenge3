@@ -17,10 +17,8 @@ var newPassword = ""
   var c4 = window.confirm("Would you like numbers? (Press ok for yes or cancel for no)");
   var c5 = window.confirm("Would you like symbols? (Press ok for yes or cancel for no)");
   
-  if(c1 >=8 && c1 <= 25) {
-    var passLength = c1;
-  } else {
-    var passLength = 8;
+  if(c1 < 8 || c1 > 128) {
+    alert("Password is wrong size");
   }
 
 if (c2) {
@@ -53,12 +51,13 @@ function shuffle(passLibrary) {
   return passLibrary;
 }
 
-for(var i=0; i < passLength; i++) {
+for(var i=0; i < c1; i++) {
   var index = Math.floor(Math.random() * passLibrary.length);
   newPassword = newPassword.concat(passLibrary[index]);
   console.log(newPassword);
 }
-  window.alert("Your new password is " + newPassword)
+  // window.alert("Your new password is " + newPassword)
+  document.getElementById("password").value = newPassword
   }
 
 // Add event listener to generate button
